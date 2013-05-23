@@ -72,8 +72,8 @@ test('Client connect ', function(t) {
           }
         });
 
-        c.on('foo', function(data) {
-          t.deepEqual(data, payload, 'Return payload should match original payload.');
+        c.on('foo', function(response) {
+          t.deepEqual(response.data, payload, 'Return payload should match original payload.');
           next();
         });
         
