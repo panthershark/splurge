@@ -48,7 +48,17 @@ test('Client connect ', function(t) {
           next();
         });
         
-    }, "Test Subscribe");
+    }, "Add Subscribe event");
+
+    tests.use(function(results, next) {
+        var c = results[0].client;
+
+        c.subscribe('poo', function(err) {
+          t.notOk(err, 'Subscribe should return error');
+          next();
+        });
+        
+    }, "Add Subscribe event");
 
     tests.use(function(results, next) {
         var c = results[0].client;
@@ -58,7 +68,7 @@ test('Client connect ', function(t) {
           next();
         });
         
-    }, "Test Unsubscribe");
+    }, "Remove subscribe event");
 
     tests.execute({
       client: client
