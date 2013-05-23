@@ -14,6 +14,18 @@ hub.on('subscribe', function(subscription) {
   console.log(subscription.connection.remoteAddress + ' is listening for "' + subscription.event + '" events.');
 });
 
+hub.on('unsubscribe', function(subscription) {
+  console.log(subscription.connection.remoteAddress + ' is listening for "' + subscription.event + '" events.');
+});
+
+hub.on('connect', function(client) {
+  console.log(client.connection.remoteAddress + ' has connected.');
+});
+
+hub.on('disconnect', function(client) {
+  console.log(client.connection.remoteAddress + ' has disconnected.');
+});
+
 hub.start(function(err) {
   if (err) {
     console.log("Error starting server");
