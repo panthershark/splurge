@@ -42,7 +42,7 @@ hub.start(function(err) {
   console.log("Server started on port " + hub.port);
 
   setInterval(function() {
-    console.log(JSON.stringify(hub.subscribers));
+    console.log(util.inspect(hub.subscribers));
   }, 1000);
 
 });
