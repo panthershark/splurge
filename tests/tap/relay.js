@@ -32,15 +32,14 @@ test('Test relay hub', function(t) {
     console.log('unsubscribe foo');
 
     hub.unsubscribe(client, 'foo');
-    t.equal(hub.subscribers.foo.length, 0, 'Event "foo" should be length 0.');
+    t.notOk(hub.subscribers.foo, 'Event "foo" should be removed.');
     t.equal(hub.subscribers.poo.length, 1, 'Event "poo" should remain in subscription list and be length 1.');
 
     console.log('unsubscribe all');
 
     hub.unsubscribe(client);
-    t.equal(hub.subscribers.foo.length, 0, 'Event "foo" should be length 0.');
-    t.equal(hub.subscribers.poo.length, 0, 'Event "poo" should be length 0.');
-
+    t.notOk(hub.subscribers.foo, 'Event "foo" should be removed.');
+    t.notOk(hub.subscribers.poo, 'Event "poo" should be removed.');
 
     hub.end(function() {
       t.notOk(err, 'Should not return error on end');
