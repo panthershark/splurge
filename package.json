@@ -15,6 +15,7 @@
     "guid": "0.0.10"
   },
   "devDependencies": {
-    "tap": "*"
+    "tap": "*",
+    "node-pipeline": "*"
   }
 }
