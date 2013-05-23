@@ -1,0 +1,19 @@
+{
+  "name": "splurge",
+  "version": "0.0.0",
+  "description": "ERROR: No README.md file found!",
+  "main": "index.js",
+  "scripts": {
+    "test": "tap tests/tap/*"
+  },
+  "repository": "",
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "lodash": "1.0.1",
+    "dnode": "1.0.5"
+  },
+  "devDependencies": {
+    "tap": "*"
+  }
+}
