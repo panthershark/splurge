@@ -12,7 +12,7 @@
   "dependencies": {
     "lodash": "1.0.1",
     "dnode": "1.0.5",
-    "guid": "*"
+    "guid": "0.0.10"
   },
   "devDependencies": {
     "tap": "*"
