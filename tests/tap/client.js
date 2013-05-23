@@ -60,6 +60,26 @@ test('Client connect ', function(t) {
         
     }, "Add Subscribe event");
 
+
+    tests.use(function(results, next) {
+        var c = results[0].client,
+            payload = { bar: 'baz' };
+
+        c.publish('foo', payload,  function(err) {
+          t.notOk(err, 'Subscribe should return error');
+          if (err) {
+            next(err);
+          }
+        });
+
+        c.on('foo', function(data) {
+          t.deepEqual(data, payload, 'Return payload should match original payload.');
+          next();
+        });
+        
+    }, "Listen for event");
+
+
     tests.use(function(results, next) {
         var c = results[0].client;
 

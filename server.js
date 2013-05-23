@@ -7,7 +7,7 @@ hub.on('error', function(data) {
 });
 
 hub.on('queue', function(entry) {
-  console.log('"' + entry.event + '" event was queued with the following data' + util.inspect(entry.data));
+  console.log('"' + entry.event + '" event was queued with the following data ' + util.inspect(entry.data));
 });
 
 hub.on('subscribe', function(subscription) {
@@ -41,8 +41,8 @@ hub.start(function(err) {
 
   console.log("Server started on port " + hub.port);
 
-  setInterval(function() {
-    console.log(util.inspect(hub.subscribers));
-  }, 1000);
+  // setInterval(function() {
+  //   console.log(util.inspect(hub.subscribers));
+  // }, 1000);
 
 });

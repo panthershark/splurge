@@ -2,7 +2,7 @@ var Splurge = require('../index.js');
 
 module.exports = function(callback) {
   var client = new Splurge.Client({ 
-    host: 'fedev5.vast.com',
+    host: 'localhost', //'fedev5.vast.com',
     port: 8989
   });
 
