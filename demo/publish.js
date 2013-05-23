@@ -1,6 +1,6 @@
 var Splurge = require('../index.js');
 var client = new Splurge.Client({ 
-    host: 'localhost', // 'fedev5.vast.com',
+    host: 'fedev5.vast.com',
     port: 8989
   });
 
