@@ -17,7 +17,7 @@ hub.on('subscribe', function(subscription) {
 
 hub.on('unsubscribe', function(subscription) {
   var client = subscription.client;
-  console.log(client.ip + ':' + client.port + ' (' + client.id + ')is listening for "' + subscription.event + '" events.');
+  console.log(client.ip + ':' + client.port + ' (' + client.id + ') is no longer listening for "' + subscription.event + '" events.');
 });
 
 hub.on('connect', function(client) {

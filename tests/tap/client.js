@@ -43,12 +43,22 @@ test('Client connect ', function(t) {
     tests.use(function(results, next) {
         var c = results[0].client;
 
-        c.ping(function(err) {
-          t.notOk(err, 'Ping should return');
+        c.subscribe('foo', function(err) {
+          t.notOk(err, 'Subscribe should return error');
           next();
         });
         
     }, "Test Subscribe");
+
+    tests.use(function(results, next) {
+        var c = results[0].client;
+
+        c.unsubscribe('foo', function(err) {
+          t.notOk(err, 'Unsubscribe should return error');
+          next();
+        });
+        
+    }, "Test Unsubscribe");
 
     tests.execute({
       client: client
