@@ -1,4 +1,4 @@
-var Splurge = require('../index.js');
+var Splurge = require('../../index.js');
 var hub = new Splurge.Relay({ port: 5001 });
 var tap = require('tap');
 var test = tap.test;
