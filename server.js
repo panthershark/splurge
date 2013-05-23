@@ -28,6 +28,10 @@ hub.on('disconnect', function(client) {
   console.log(client.ip + ':' + client.port + ' (' + client.id + ') has disconnected.');
 });
 
+hub.on('ping', function(client) {
+  console.log('Ping from ' + client.ip + ':' + client.port + ' (' + client.id + ').');
+});
+
 hub.start(function(err) {
   if (err) {
     console.log("Error starting server");
