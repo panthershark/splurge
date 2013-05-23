@@ -19,11 +19,11 @@ hub.on('unsubscribe', function(subscription) {
 });
 
 hub.on('connect', function(client) {
-  console.log(client.connection.remoteAddress + ' has connected.');
+  console.log(client.ip + ':' + client.port + ' (' + client.id + ') has connected.');
 });
 
 hub.on('disconnect', function(client) {
-  console.log(client.connection.remoteAddress + ' has disconnected.');
+  console.log(client.ip + ':' + client.port + ' (' + client.id + ') has disconnected.');
 });
 
 hub.start(function(err) {

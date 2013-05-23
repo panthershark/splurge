@@ -11,7 +11,8 @@
   "license": "MIT",
   "dependencies": {
     "lodash": "1.0.1",
-    "dnode": "1.0.5"
+    "dnode": "1.0.5",
+    "guid": "*"
   },
   "devDependencies": {
     "tap": "*"
