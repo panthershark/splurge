@@ -1,3 +1,4 @@
+var Splurge = require('./index.js');
 var util = require('util');
 var hub = new Splurge.Relay({ port: 8989 });
 
