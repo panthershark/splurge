@@ -11,11 +11,13 @@ hub.on('queue', function(entry) {
 });
 
 hub.on('subscribe', function(subscription) {
-  console.log(subscription.connection.remoteAddress + ' is listening for "' + subscription.event + '" events.');
+  var client = subscription.client;
+  console.log(client.ip + ':' + client.port + ' (' + client.id + ') is listening for "' + subscription.event + '" events.');
 });
 
 hub.on('unsubscribe', function(subscription) {
-  console.log(subscription.connection.remoteAddress + ' is listening for "' + subscription.event + '" events.');
+  var client = subscription.client;
+  console.log(client.ip + ':' + client.port + ' (' + client.id + ')is listening for "' + subscription.event + '" events.');
 });
 
 hub.on('connect', function(client) {
