@@ -1,10 +1,10 @@
 var Splurge = require('../index.js');
 var client = new Splurge.Client({ 
-    host: 'fedev5.vast.com',
+    host: 'localhost', // 'fedev5.vast.com',
     port: 8989
   });
 
-var interval = 300;
+var interval = 10;
 
 client.connect(function() {
   console.log('Connected.  Sending random messages every ' + interval + 'ms');
@@ -12,9 +12,9 @@ client.connect(function() {
   setInterval(function() {
     var n = Math.random() * 100000;
     client.publish('random', n, function(err) {
-      if (!err) {
-        console.log('Published "random" event with value: ' + n);
-      }
+      // if (!err) {
+      //   console.log('Published "random" event with value: ' + n);
+      // }
     });
   }, interval);
 
