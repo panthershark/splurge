@@ -6,6 +6,7 @@ var client = new Splurge.Client({
 
 var total = 0;
 var cnt = 0;
+var latency = 0;
 
 client.on('end', function() {
   console.log('Connection closed');
@@ -13,8 +14,9 @@ client.on('end', function() {
 });
 
 client.on('random', function(payload) {
-  var latency = (new Date()).valueOf() - payload.timestamp.created;
-  total += latency;
+  var now = (new Date()).valueOf();
+  latency += now - payload.timestamp.emitted;
+  total += now - payload.timestamp.created;
   cnt++;
 });
 
@@ -24,8 +26,10 @@ client.connect(function() {
 });
 
 setInterval(function() {
-  var avg = cnt > 0 ? total/cnt : 0;
-  console.log('Received: ' + cnt +'. Average latency: ' + avg);
+  var trip = cnt > 0 ? total/cnt : 0;
+  var lat = cnt > 0 ? latency/cnt : 0;
+  console.log('Received: ' + cnt +'. Average network latency: ' + lat + 'ms. Average trip: ' + trip + 'ms.');
   total = 0;
+  latency = 0;
   cnt = 0;
-}, 2000);
+}, 1000);

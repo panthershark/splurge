@@ -6,15 +6,20 @@ var client = new Splurge.Client({
 
 var interval = 10;
 
+client.on('end', function() {
+  console.log('Connection closed');
+  process.exit();
+});
+
 client.connect(function() {
-  console.log('Connected.  Sending random messages every ' + interval + 'ms');
+  console.log('Connected.  Sending ' + (1000/interval) + ' messages per second.');
 
   setInterval(function() {
     var n = Math.random() * 100000;
     client.publish('random', n, function(err) {
-      // if (!err) {
-      //   console.log('Published "random" event with value: ' + n);
-      // }
+      if (!err) {
+        console.log('Published "random" event with value: ' + n);
+      }
     });
   }, interval);
 

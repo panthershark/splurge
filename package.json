@@ -10,9 +10,12 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "lodash": "1.0.1",
+    "lodash": "1.2.1",
     "dnode": "1.0.5",
-    "guid": "0.0.10"
+    "guid": "0.0.10",
+    "level": "0.9.0",
+    "mkdirp": "*",
+    "rimraf": "*"
   },
   "devDependencies": {
     "tap": "*",
